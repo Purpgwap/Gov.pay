@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay.gov - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #153057;
+            --banner-gray: #f0f0f0;
+            --sign-in-cyan: #00bde3;
+            --card-header: #0f3057;
+            --link-blue: #005ea2;
+            --text-dark: #1b1b1b;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: #f9f9f9;
+        }
+
+        /* Top Banner */
+        .usa-banner {
+            background-color: var(--banner-gray);
+            font-size: 12px;
+            padding: 4px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .usa-banner img {
+            width: 16px;
+            margin-right: 8px;
+        }
+
+        .usa-banner span {
+            color: var(--text-dark);
+        }
+
+        .usa-banner a {
+            color: var(--link-blue);
+            text-decoration: underline;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-blue);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .sign-in-btn {
+            background-color: var(--sign-in-cyan);
+            color: var(--primary-blue);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--white);
+            border-radius: 4px;
+            padding: 2px;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 8px;
+            width: 150px;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search-box button {
+            background-color: var(--primary-blue);
+            border: none;
+            color: var(--white);
+            padding: 8px 12px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            background-image: url('assets/pay_gov_hero_bg.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content {
+            position: relative;
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--white);
+            padding: 30px;
+            max-width: 500px;
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 40px;
+            margin: 0;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: -40px auto 50px;
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            background-color: var(--card-header);
+            color: var(--white);
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .card-body h3 {
+            margin: 0 0 15px;
+            font-size: 24px;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .card-body p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .card-link {
+            color: var(--link-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-link:after {
+            content: ' ▶';
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        /* Quick Searches */
+        .quick-searches {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .quick-searches h2 {
+            font-size: 28px;
+            color: var(--primary-blue);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .quick-searches p.subtitle {
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .search-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .search-item {
+            display: flex;
+            gap: 15px;
+        }
+
+        .search-item .icon {
+            font-size: 24px;
+            color: var(--primary-blue);
+            width: 40px;
+        }
+
+        .search-item h4 {
+            margin: 0 0 5px;
+            font-size: 20px;
+            color: var(--link-blue);
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        .search-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Responsive Mobile Styles (Matching User Screenshot) */
+        @media (max-width: 768px) {
+            .nav-links, .search-box {
+                display: none;
+            }
+
+            .header-right .menu-btn {
+                display: block;
+                background: var(--primary-blue);
+                color: var(--white);
+                border: 1px solid #444;
+                padding: 8px 15px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            .hero {
+                height: 300px;
+                padding: 0 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 24px;
+            }
+
+            .container {
+                margin-top: -20px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .menu-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Official Banner -->
+    <section class="usa-banner">
+        <img src="https://www.pay.gov/public/resources/css/vendor/img/us_flag_small.png" alt="U.S. flag">
+        <span>An official website of the United States government <a href="#">Here's how you know</a></span>
+    </section>
+
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <img src="assets/pay_gov_logo.webp" alt="Pay.gov" class="logo">
+            <nav class="nav-links">
+                <a href="#">Browse Payments</a>
+                <a href="#">See All Forms</a>
+                <a href="#">Help</a>
+                <a href="#">About Us ▾</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <a href="#" class="sign-in-btn">Sign In</a>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <button>🔍</button>
+            </div>
+            <button class="menu-btn">MENU</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>The secure way to pay U.S. Federal Government Agencies</h1>
+        </div>
+    </section>
+
+    <!-- Main Content Cards -->
+    <div class="container">
+        <div class="card-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-header">Department of Veterans Affairs</div>
+                <div class="card-body">
+                    <h3>Make a VA Medical Care Copayment</h3>
+                    <p>Did you receive a medical bill statement from the U.S. Department of Veterans Affairs?</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link">Pay it right here</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-header">Social Security Administration</div>
+                <div class="card-body">
+                    <h3>Pay Social Security</h3>
+                    <p>Did you receive a notice from the Social Security Administration containing a Remittance ID to pay electronically?</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link">Pay it right here</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-header">Defense Finance and Accounting Service</div>
+                <div class="card-body">
+                    <h3>Pay a Former Military or Civilian Employee Debt</h3>
+                    <p>Are you a former military member or former federal employee that has to pay a debt to Department of Defense?</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link">Pay it right here</a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <div class="card-header">Internal Revenue Service</div>
+                <div class="card-body">
+                    <h3>Apply for IRS 1023 EZ</h3>
+                    <p>Do you need to apply for a tax exemption under Section 501(c)(3) of the Internal Revenue Code?</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link">Apply right here</a>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <div class="card-header">Treasury: Bureau of the Fiscal Service</div>
+                <div class="card-body">
+                    <h3>Pay an overdue debt to the Bureau of the Fiscal Service</h3>
+                    <p>Do you want to make a payment toward a federal non-tax debt (not an IRS tax debt or student loan debt)?</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link">Pay it right here</a>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <div class="card-header">DHS: Transportation Security Administration (TSA)</div>
+                <div class="card-body">
+                    <h3>Pay TSA for your ConfirmID Service</h3>
+                    <p>Don't have a REAL ID or another acceptable form of ID to present to TSA for air travel?</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link">Pay it right here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Searches Section -->
+    <section class="quick-searches">
+        <h2>What would you like to do?</h2>
+        <p class="subtitle">Here are some quick searches to help you get started.</p>
+        
+        <div class="search-grid">
+            <div class="search-item">
+                <div class="icon">❤️</div>
+                <div>
+                    <h4>Pay a Medical Expense</h4>
+                    <p>Includes: VA, Air Force Medical Groups, etc.</p>
+                </div>
+            </div>
+            <div class="search-item">
+                <div class="icon">💰</div>
+                <div>
+                    <h4>Make a Loan Payment</h4>
+                    <p>Includes: 1201 Borrower, HUD, etc.</p>
+                </div>
+            </div>
+            <div class="search-item">
+                <div class="icon">🔨</div>
+                <div>
+                    <h4>Pay a Fine, Violation, or Penalty</h4>
+                    <p>Includes: FAA, OSHA, etc.</p>
+                </div>
+            </div>
+            <div class="search-item">
+                <div class="icon">🛡️</div>
+                <div>
+                    <h4>Pay a Debt</h4>
+                    <p>Includes: DFAS, Criminal, etc.</p>
+                </div>
+            </div>
+            <div class="search-item">
+                <div class="icon">🏞️</div>
+                <div>
+                    <h4>Visit a National Park</h4>
+                    <p>Includes: Passes, Permits, etc.</p>
+                </div>
+            </div>
+            <div class="search-item">
+                <div class="icon">🤝</div>
+                <div>
+                    <h4>Make a Donation or Contribution</h4>
+                    <p>Includes: NEA, VA, etc.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
